@@ -12,19 +12,4 @@ class Notifications {
         textColor: Colors.white,
         fontSize: 16.0);
   }
-
-  static void showSnackBar(BuildContext context, String text) {
-    final scaffold = Scaffold.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        content: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: Color(0xFF0A0E21),
-      ),
-    );
-  }
 }
