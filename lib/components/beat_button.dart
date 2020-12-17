@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:beatbox_app/enums/button_status.dart';
+import 'package:beatbox_app/generated/l10n.dart';
 import 'package:beatbox_app/utils/constants.dart';
 import 'package:beatbox_app/utils/notifications.dart';
 import 'package:flutter/material.dart';
@@ -159,7 +160,9 @@ class _BeatButtonState extends State<BeatButton> {
   void onPress() async {
     switch (_currentState) {
       case ButtonStatus.IDLE:
-        Notifications.showToast('Grabando...');
+        Notifications.showToast(
+          S.of(context).recording,
+        );
         await record();
         setState(() {
           _color = kRecordingColor;
@@ -168,7 +171,9 @@ class _BeatButtonState extends State<BeatButton> {
         break;
 
       case ButtonStatus.REC:
-        Notifications.showToast('Grabación almacenada');
+        Notifications.showToast(
+          S.of(context).audioStored,
+        );
         stopRecorder();
         setState(() {
           _color = kPauseColor;
@@ -177,7 +182,9 @@ class _BeatButtonState extends State<BeatButton> {
         break;
 
       case ButtonStatus.PLAY:
-        Notifications.showToast('Pausa');
+        Notifications.showToast(
+          S.of(context).pause,
+        );
         await stopPlayer();
         setState(() {
           _color = kPauseColor;
@@ -186,7 +193,9 @@ class _BeatButtonState extends State<BeatButton> {
         break;
 
       case ButtonStatus.PAUSE:
-        Notifications.showToast('Reproduciendo...');
+        Notifications.showToast(
+          S.of(context).playing,
+        );
         play();
         setState(() {
           _color = kPlayColor;
@@ -204,7 +213,9 @@ class _BeatButtonState extends State<BeatButton> {
     await stopRecorder();
     await stopPlayer();
     setState(() {
-      Notifications.showToast('Reset');
+      Notifications.showToast(
+        S.of(context).reset,
+      );
       _color = kActiveCardColor;
       _currentState = ButtonStatus.IDLE;
     });
