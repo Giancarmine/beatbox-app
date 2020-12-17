@@ -1,4 +1,4 @@
-name: Flutter CI
+name: Flutter CI action
 
 # This workflow is triggered on pushes to the repository.
 
@@ -45,5 +45,5 @@ jobs:
     # Upload generated apk to the artifacts.
     - uses: actions/upload-artifact@v1
       with:
-        name: release-apk
-        path: build/app/outputs/apk/release/app-release.apk
+        name: beatbox-app
+        path: build/app/outputs/apk/release/beatbox-app.apk

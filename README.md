@@ -1,4 +1,4 @@
-# beatbox_app
+# Beatbox App
 
 A drum box for beatbox in Flutter.
 
