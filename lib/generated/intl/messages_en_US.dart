@@ -22,9 +22,21 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "audioStored" : MessageLookupByLibrary.simpleMessage("Audio stored"),
+    "done" : MessageLookupByLibrary.simpleMessage("Done"),
+    "featuresDetail" : MessageLookupByLibrary.simpleMessage("Check for new app version availability soon"),
+    "featuresTitle" : MessageLookupByLibrary.simpleMessage("New features are coming"),
+    "introDetail" : MessageLookupByLibrary.simpleMessage("Start now to create your own music"),
+    "introTitle" : MessageLookupByLibrary.simpleMessage("BeatBox App"),
+    "lastDetail" : MessageLookupByLibrary.simpleMessage("Everything is ready to go!"),
+    "lastTitle" : MessageLookupByLibrary.simpleMessage("Let\'s beat"),
     "pause" : MessageLookupByLibrary.simpleMessage("Pause"),
+    "permissionDetail" : MessageLookupByLibrary.simpleMessage("This App need audio and storage permission for work well\n\nGrant to play!"),
+    "permissionTitle" : MessageLookupByLibrary.simpleMessage("Can I..."),
     "playing" : MessageLookupByLibrary.simpleMessage("Playing..."),
     "recording" : MessageLookupByLibrary.simpleMessage("Recording..."),
-    "reset" : MessageLookupByLibrary.simpleMessage("reset")
+    "reset" : MessageLookupByLibrary.simpleMessage("reset"),
+    "skip" : MessageLookupByLibrary.simpleMessage("Skip"),
+    "testDetail" : MessageLookupByLibrary.simpleMessage("Tap, double tap, long press... \n\nThe better way is trying"),
+    "testTitle" : MessageLookupByLibrary.simpleMessage("\n\nGive me a try!")
   };
 }

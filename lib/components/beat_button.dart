@@ -10,6 +10,7 @@ import 'package:flutter_sound_lite/flutter_sound.dart';
 import 'package:path_provider/path_provider.dart';
 
 const int SAMPLE_RATE = 8000;
+
 typedef fn();
 
 class BeatButton extends StatefulWidget {
@@ -91,6 +92,7 @@ class _BeatButtonState extends State<BeatButton> {
     );
     setState(() {});
   }
+
   // --------------------- (it was very simple, wasn't it ?) -------------------
 
   Future<void> stopRecorder() async {
