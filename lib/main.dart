@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:beatbox_app/config.dart';
 import 'package:beatbox_app/generated/l10n.dart';
 import 'package:beatbox_app/screens/console_screen.dart';
@@ -9,9 +11,9 @@ import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
 void main() async {
-  //var path = Directory.systemTemp.path;
-  var dir = await getApplicationDocumentsDirectory();
-  Hive..init(dir.path);
+  var path = Directory.systemTemp.path;
+  //var path = (await getApplicationDocumentsDirectory()).path;
+  Hive..init(path);
   box = await Hive.openBox('beatBox');
   runApp(MyApp());
 }
