@@ -14,100 +14,18 @@ class _ConsoleScreenState extends State<ConsoleScreen> {
       appBar: AppBar(
         title: Text(kAppName),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '1',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '2',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '3',
-                )),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '4',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '5',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '6',
-                )),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '7',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '8',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '9',
-                )),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '10',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '11',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '12',
-                )),
-              ],
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '13',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '14',
-                )),
-                Expanded(
-                    child: BeatButton(
-                  mFileName: '15',
-                )),
-              ],
-            ),
-          ),
-        ],
+      body: GridView.builder(
+        itemCount: 30,
+        shrinkWrap: true,
+        //physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+        ),
+        itemBuilder: (context, index) {
+          return BeatButton(
+            mFileName: index.toString(),
+          );
+        },
       ),
     );
   }

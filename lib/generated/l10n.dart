@@ -84,6 +84,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message(
+      'Skip',
+      name: 'skip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BeatBox App`
+  String get introTitle {
+    return Intl.message(
+      'BeatBox App',
+      name: 'introTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start now to create your own music`
+  String get introDetail {
+    return Intl.message(
+      'Start now to create your own music',
+      name: 'introDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Can I...`
+  String get permissionTitle {
+    return Intl.message(
+      'Can I...',
+      name: 'permissionTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This App need audio and storage permission for work well\n\nGrant to play!`
+  String get permissionDetail {
+    return Intl.message(
+      'This App need audio and storage permission for work well\n\nGrant to play!',
+      name: 'permissionDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New features are coming`
+  String get featuresTitle {
+    return Intl.message(
+      'New features are coming',
+      name: 'featuresTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check for new app version availability soon`
+  String get featuresDetail {
+    return Intl.message(
+      'Check for new app version availability soon',
+      name: 'featuresDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `\n\nGive me a try!`
+  String get testTitle {
+    return Intl.message(
+      '\n\nGive me a try!',
+      name: 'testTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap, double tap, long press... \n\nThe better way is trying`
+  String get testDetail {
+    return Intl.message(
+      'Tap, double tap, long press... \n\nThe better way is trying',
+      name: 'testDetail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let's beat`
+  String get lastTitle {
+    return Intl.message(
+      'Let\'s beat',
+      name: 'lastTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Everything is ready to go!`
+  String get lastDetail {
+    return Intl.message(
+      'Everything is ready to go!',
+      name: 'lastDetail',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

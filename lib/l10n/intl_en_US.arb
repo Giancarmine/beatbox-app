@@ -4,5 +4,17 @@
   "pause": "Pause",
   "playing": "Playing...",
   "recording": "Recording...",
-  "reset": "reset"
+  "reset": "reset",
+  "skip": "Skip",
+  "done": "Done",
+  "introTitle": "BeatBox App",
+  "introDetail": "Start now to create your own music",
+  "permissionTitle": "Can I...",
+  "permissionDetail": "This App need audio and storage permission for work well\n\nGrant to play!",
+  "featuresTitle": "New features are coming",
+  "featuresDetail": "Check for new app version availability soon",
+  "testTitle": "\n\nGive me a try!",
+  "testDetail": "Tap, double tap, long press... \n\nThe better way is trying",
+  "lastTitle": "Let's beat",
+  "lastDetail": "Everything is ready to go!"
 }
