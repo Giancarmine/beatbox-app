@@ -8,6 +8,7 @@ import 'package:beatbox_app/utils/notifications.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound_lite/flutter_sound.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 const int SAMPLE_RATE = 8000;
 
@@ -40,6 +41,11 @@ class _BeatButtonState extends State<BeatButton> {
   }
 
   void initAudio() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.microphone,
+      Permission.storage,
+    ].request();
+
     // Be careful : openAudioSession return a Future.
     // Do not access your FlutterSoundPlayer or FlutterSoundRecorder before the completion of the Future
     await _mPlayer.openAudioSession().then((value) {

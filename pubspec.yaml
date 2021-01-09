@@ -18,6 +18,7 @@ dependencies:
   fluttertoast: ^7.1.6
   flutter_sound_lite: ^7.5.0+2
   hive: ^1.4.4+1
+  permission_handler: ^5.0.1+1
   intl: 0.17.0-nullsafety.2
   flutter_localizations:
     sdk: flutter
