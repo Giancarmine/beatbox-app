@@ -12,7 +12,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 const int SAMPLE_RATE = 8000;
 
-typedef fn();
+typedef Fn();
 
 class BeatButton extends StatefulWidget {
   final String mFileName;
@@ -33,6 +33,8 @@ class _BeatButtonState extends State<BeatButton> {
   bool _mPlaybackReady = false;
   String _mPath;
   StreamSubscription _mRecordingDataSubscription;
+  IOSink _sink;
+  StreamController<Food> _recordingDataController;
 
   @override
   void initState() {
@@ -41,7 +43,7 @@ class _BeatButtonState extends State<BeatButton> {
   }
 
   void initAudio() async {
-    Map<Permission, PermissionStatus> statuses = await [
+    await [
       Permission.microphone,
       Permission.storage,
     ].request();
@@ -69,6 +71,10 @@ class _BeatButtonState extends State<BeatButton> {
     stopRecorder();
     _mRecorder.closeAudioSession();
     _mRecorder = null;
+
+    _sink.close();
+    _recordingDataController.close();
+
     super.dispose();
   }
 
@@ -84,19 +90,24 @@ class _BeatButtonState extends State<BeatButton> {
 
   Future<void> record() async {
     assert(_mRecorderIsInited && _mPlayer.isStopped);
-    IOSink sink = await createFile();
-    StreamController<Food> recordingDataController = StreamController<Food>();
+    _sink = await createFile();
+    _recordingDataController = StreamController<Food>();
+
     _mRecordingDataSubscription =
-        recordingDataController.stream.listen((Food buffer) {
-      if (buffer is FoodData) sink.add(buffer.data);
+        _recordingDataController.stream.listen((Food buffer) {
+      if (buffer is FoodData) _sink.add(buffer.data);
     });
+
     await _mRecorder.startRecorder(
-      toStream: recordingDataController.sink,
+      toStream: _recordingDataController.sink,
       codec: Codec.pcm16,
       numChannels: 1,
       sampleRate: SAMPLE_RATE,
     );
     setState(() {});
+
+    // sink.close();
+    // recordingDataController.close();
   }
 
   // --------------------- (it was very simple, wasn't it ?) -------------------
@@ -110,7 +121,7 @@ class _BeatButtonState extends State<BeatButton> {
     _mPlaybackReady = true;
   }
 
-  fn getRecorderFn() {
+  Fn getRecorderFn() {
     if (!_mRecorderIsInited || !_mPlayer.isStopped) return null;
     return _mRecorder.isStopped
         ? record
@@ -140,7 +151,7 @@ class _BeatButtonState extends State<BeatButton> {
     await _mPlayer.stopPlayer();
   }
 
-  fn getPlaybackFn() {
+  Fn getPlaybackFn() {
     if (!_mPlayerIsInited || !_mPlaybackReady || !_mRecorder.isStopped)
       return null;
     return _mPlayer.isStopped

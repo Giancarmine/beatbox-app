@@ -26,7 +26,7 @@ class MutableConfig with ChangeNotifier {
 
   void resetConfig() {
     _isFirstTime = true;
-    
+
     notifyListeners();
     box.put('firstTime', _isFirstTime);
   }
