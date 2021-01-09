@@ -50,15 +50,15 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           decoration: pageDecoration,
         ),
         PageViewModel(
-          title: S.of(context).permissionTitle,
-          body: S.of(context).permissionDetail,
-          image: _buildImage('hdd'),
-          decoration: pageDecoration,
-        ),
-        PageViewModel(
           title: S.of(context).featuresTitle,
           body: S.of(context).featuresDetail,
           image: _buildImage('folder'),
+          decoration: pageDecoration,
+        ),
+        PageViewModel(
+          title: S.of(context).permissionTitle,
+          body: S.of(context).permissionDetail,
+          image: _buildImage('hdd'),
           decoration: pageDecoration,
         ),
         PageViewModel(
